@@ -58,7 +58,8 @@ class Weibo(object):
     def get_json(self, params):
         """获取网页中json数据"""
         url = 'https://m.weibo.cn/api/container/getIndex?'
-        r = requests.get(url, params=params)
+        headers = {'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'}
+        r = requests.get(url, params=params,headers=headers)
         return r.json()
 
     def get_weibo_json(self, page):

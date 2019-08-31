@@ -16,7 +16,8 @@ def crawlDetailPage(url,page,producer):
     global ID_get
     global num
     #读取微博网页的JSON信息
-    req = requests.get(url)
+    headers = {'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'}
+    req = requests.get(url,headers=headers)
     jsondata = req.text
     data = json.loads(jsondata)
     #获取每一条页的数据
